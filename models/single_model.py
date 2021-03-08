@@ -25,6 +25,7 @@ class SingleModel(BaseModel):
         nb = opt.batchSize
         size = opt.fineSize
         self.opt = opt
+        self.isTrain = False
         self.input_A = self.Tensor(nb, opt.input_nc, size, size)
         self.input_B = self.Tensor(nb, opt.output_nc, size, size)
         self.input_img = self.Tensor(nb, opt.input_nc, size, size)
