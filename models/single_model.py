@@ -35,7 +35,7 @@ class SingleModel(BaseModel):
             if self.opt.IN_vgg:
                 self.vgg_patch_loss = networks.PerceptualLoss(opt)
                 self.vgg_patch_loss.cuda()
-            self.vgg_loss.cuda()
+            # self.vgg_loss.cuda()
             self.vgg = networks.load_vgg16("/datadrive/weights/enlightengan/", self.gpu_ids)
             self.vgg.eval()
             for param in self.vgg.parameters():
