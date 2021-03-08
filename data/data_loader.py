@@ -1,4 +1,4 @@
-from data.custom_dataset_data_loader import CustomDatasetDataLoader
+from Enlighten_GAN.data.custom_dataset_data_loader import CustomDatasetDataLoader
 
 def CreateDataLoader(opt):
     data_loader = CustomDatasetDataLoader()
