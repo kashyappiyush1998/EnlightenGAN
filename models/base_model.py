@@ -11,7 +11,7 @@ class BaseModel():
         self.gpu_ids = opt.gpu_ids
         self.isTrain = opt.isTrain
         self.Tensor = torch.Tensor
-        self.save_dir = '/datadrive/weights/enlightengan/200_net_G_A.pth'#os.path.join(opt.checkpoints_dir, opt.name)
+        self.save_dir = '/datadrive/weights/enlightengan'#os.path.join(opt.checkpoints_dir, opt.name)
 
     def set_input(self, input):
         self.input = input
