@@ -8,7 +8,7 @@ from torch.autograd import Variable
 import torch.nn.functional as F
 import numpy as np
 # from torch.utils.serialization import load_lua
-from lib.nn import SynchronizedBatchNorm2d as SynBN2d
+from EnlightenGAN.lib.nn import SynchronizedBatchNorm2d as SynBN2d
 ###############################################################################
 # Functions
 ###############################################################################
