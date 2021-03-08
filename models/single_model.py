@@ -8,8 +8,7 @@ import EnlightenGAN.util.util as util
 from collections import OrderedDict
 from torch.autograd import Variable
 import itertools
-import util.util as util
-from util.image_pool import ImagePool
+from EnlightenGAN.util.image_pool import ImagePool
 from .base_model import BaseModel
 import random
 from . import networks
