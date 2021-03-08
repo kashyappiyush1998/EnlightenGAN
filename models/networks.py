@@ -79,7 +79,7 @@ def get_norm_layer(norm_type='instance'):
 
 def define_G(input_nc, output_nc, ngf, which_model_netG, norm='batch', use_dropout=False, gpu_ids=[], skip=False, opt=None):
     netG = None
-    use_gpu = len(gpu_ids) > 0
+    use_gpu = False
     norm_layer = get_norm_layer(norm_type=norm)
 
     if use_gpu:
