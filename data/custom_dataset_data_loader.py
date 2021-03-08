@@ -1,6 +1,6 @@
 import torch.utils.data
-from data.base_data_loader import BaseDataLoader
-from data.unaligned_dataset import UnalignedDataset
+from .base_data_loader import BaseDataLoader
+from .unaligned_dataset import UnalignedDataset
 
 def CreateDataset(opt):
     dataset = None
