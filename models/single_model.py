@@ -4,7 +4,7 @@ from torch import nn
 import os
 from collections import OrderedDict
 from torch.autograd import Variable
-import util.util as util
+import EnlightenGAN.util.util as util
 from collections import OrderedDict
 from torch.autograd import Variable
 import itertools
