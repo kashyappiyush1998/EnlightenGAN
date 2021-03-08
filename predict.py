@@ -19,6 +19,7 @@ class Enlighten_GAN:
         self.opt.dataroot = './test_dataset'
         self.opt.name = 'enlightening'
         self.opt.model = 'single'
+        self.opt.gpu_ids=-1
         self.opt.which_direction = 'AtoB'
         self.opt.no_dropout = True
         self.opt.dataset_mode = 'unaligned'

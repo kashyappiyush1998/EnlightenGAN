@@ -1047,7 +1047,7 @@ def load_vgg16(model_dir, gpu_ids):
     vgg = Vgg16()
     # vgg.cuda()
     vgg.cuda(device=gpu_ids[0])
-    vgg.load_state_dict(torch.load(os.path.join(model_dir, 'vgg16.weight')))
+    vgg.load_state_dict(torch.load(os.path.join(model_dir, 'vgg16.weight'), map_location='cpu'))
     vgg = torch.nn.DataParallel(vgg, gpu_ids)
     return vgg
 
@@ -1163,7 +1163,7 @@ class FCN32s(nn.Module):
 
 def load_fcn(model_dir):
     fcn = FCN32s()
-    fcn.load_state_dict(torch.load(os.path.join(model_dir, 'fcn32s_from_caffe.pth')))
+    fcn.load_state_dict(torch.load(os.path.join(model_dir, 'fcn32s_from_caffe.pth'), map_location='cpu'))
     fcn.cuda()
     return fcn
 
