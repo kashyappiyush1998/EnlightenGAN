@@ -56,9 +56,9 @@ class Enlighten_GAN:
         print(dataset)
         for i, data in enumerate(dataset):
             print("Setting Inputs")
-            model.set_input(data)
+            self.model.set_input(data)
             print("Predicting from Model")
-            visuals = model.predict()
+            visuals = self.model.predict()
             print("Saving Visualiser")
             image = visualizer.save_images(visuals)
             os.remove(img_name)
