@@ -70,6 +70,7 @@ class SingleModel(BaseModel):
                                             opt.n_layers_patchD, opt.norm, use_sigmoid, self.gpu_ids, True)
         if not self.isTrain or opt.continue_train:
             which_epoch = opt.which_epoch
+            self.netG_A = torch.nn.DataParallel(self.netG_A, self.gpu_ids)
             self.load_network(self.netG_A, 'G_A', which_epoch)
             # self.load_network(self.netG_B, 'G_B', which_epoch)
             if self.isTrain:
