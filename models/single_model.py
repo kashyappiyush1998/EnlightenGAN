@@ -31,7 +31,7 @@ class SingleModel(BaseModel):
         self.input_img = self.Tensor(nb, opt.input_nc, size, size)
         self.input_A_gray = self.Tensor(nb, 1, size, size)
         opt.vgg =1
-        print("opt.vgg: ", opt.vgg, "opt.fcn: ", opt.fcn, "opt.skip: ", opt.skip)
+        print("opt.vgg: ", opt.vgg, "opt.fcn: ", opt.fcn, "opt.skip: ", opt.skip, "opt.input_nc: ", opt.input_nc, "opt.fineSize: ", opt.fineSize)
         if opt.vgg > 0:
             self.vgg_loss = networks.PerceptualLoss(opt)
             if self.opt.IN_vgg:
@@ -123,6 +123,7 @@ class SingleModel(BaseModel):
         input_img = input['input_img']
         input_A_gray = input['A_gray']
         print(input_A.size())
+        print(self.input_A)
         self.input_A.resize_(input_A.size()).copy_(input_A)
         self.input_A_gray.resize_(input_A_gray.size()).copy_(input_A_gray)
         self.input_B.resize_(input_B.size()).copy_(input_B)
