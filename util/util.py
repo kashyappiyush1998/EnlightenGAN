@@ -67,7 +67,7 @@ def diagnose_network(net, name='network'):
 
 def save_image(image_numpy):
     # image_pil = image_numpy
-    image_numpy = cv2.cvtColor(image_numpy, cv2.COLOR_BGR2RGB) 
+    # image_numpy = cv2.cvtColor(image_numpy, cv2.COLOR_BGR2RGB) 
     return image_numpy
 
 def info(object, spacing=10, collapse=1):
