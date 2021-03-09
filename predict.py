@@ -55,12 +55,14 @@ class Enlighten_GAN:
         print("Length of  Dataset "+str(len(dataset)))
         print(dataset)
         for i, data in enumerate(dataset):
-            print("Setting Inputs")
-            self.model.set_input(data)
-            print("Predicting from Model")
-            visuals = self.model.predict()
-            print("Saving Visualiser")
-            image = visualizer.save_images(visuals)
-            os.remove(img_name)
-            
-            return image
+            print(i)
+            if(i==2):
+                print("Setting Inputs")
+                self.model.set_input(data)
+                print("Predicting from Model")
+                visuals = self.model.predict()
+                print("Saving Visualiser")
+                image = visualizer.save_images(visuals)
+                os.remove(img_name)
+                
+                return image
