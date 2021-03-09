@@ -69,7 +69,8 @@ class Enlighten_GAN:
                 image=cv2.resize(image_new, (int(image.shape[1]), int(image.shape[0])))
                 os.remove(img_name)
                 return image
-        except:
-            os.remove(img_name)    
+        except Exception as e:
+            os.remove(img_name)
+            print(e)    
             return None 
             
