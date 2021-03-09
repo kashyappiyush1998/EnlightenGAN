@@ -40,6 +40,8 @@ class Enlighten_GAN:
     def get_enlightened_image(self, image):
         img_name = str(uuid.uuid4())+'.png'
         img_name = os.path.join(self.opt.dataroot, 'testA', img_name)
+        if(image.shape[0]>1000 or image.shape[1]>1000):
+            image=cv2.resize(image, (int(image.shape[0]/3), int(image.shape[1]/3), int(image.shape[2])))
         cv2.imwrite(img_name, image)
 
         print('Creating DataLoader ...')
