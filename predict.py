@@ -17,7 +17,7 @@ class Enlighten_GAN:
         self.opt.batchSize = 1  # test code only supports batchSize = 1
         self.opt.serial_batches = True  # no shuffle
         self.opt.no_flip = True  # no flip
-        self.opt.dataroot = './test_dataset'
+        self.opt.dataroot = '/home/azureuser/imagewizard/EnlightenGAN/test_dataset'
         self.opt.name = 'enlightening'
         self.opt.model = 'single'
         self.opt.gpu_ids=-1
