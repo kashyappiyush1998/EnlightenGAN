@@ -62,8 +62,8 @@ class Enlighten_GAN:
             print("Predicting from Model")
             visuals = self.model.predict()
             print("Saving Visualiser")
-            image = visualizer.save_images(visuals)
-            image=cv2.resize(image, (int(image.shape[0]), int(image.shape[1])))
+            image_new = visualizer.save_images(visuals)
+            image=cv2.resize(image_new, (int(image.shape[1]), int(image.shape[0])))
             os.remove(img_name)
             
             return image
