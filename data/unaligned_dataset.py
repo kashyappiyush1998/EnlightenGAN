@@ -96,7 +96,7 @@ class UnalignedDataset(BaseDataset):
 
         
         if self.opt.resize_or_crop == 'no':
-            r,g,b = A_img[0]+1, A_img[1]+1, A_img[2]+1
+            r,g,b = A_img[2]+1, A_img[1]+1, A_img[0]+1
             A_gray = 1. - (0.299*r+0.587*g+0.114*b)/2.
             A_gray = torch.unsqueeze(A_gray, 0)
             input_img = A_img
