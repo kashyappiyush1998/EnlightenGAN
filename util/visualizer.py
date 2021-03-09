@@ -126,7 +126,7 @@ class Visualizer():
             # ims.append(image_name)
             # txts.append(label)
             # links.append(image_name)
-        return image
+            return image
         # webpage.add_images(ims, txts, links, width=self.win_size)
 
 
