@@ -18,7 +18,7 @@ class Enlighten_GAN:
         self.opt.serial_batches = True  # no shuffle
         self.opt.no_flip = True  # no flip
         self.opt.dataroot = '/home/azureuser/imagewizard/EnlightenGAN/test_dataset'
-        self.opt.weight_folder = "/datadrive/weights/enlightengan/"
+        self.opt.weight_folder = "weights/EnlightenGAN/"
         self.opt.name = 'enlightening'
         self.opt.model = 'single'
         self.opt.gpu_ids=-1
