@@ -1046,7 +1046,7 @@ def load_vgg16(model_dir, gpu_ids):
     #     torch.save(vgg.state_dict(), os.path.join(model_dir, 'vgg16.weight'))
     vgg = Vgg16()
     # vgg.cuda()
-    vgg.cuda(device=gpu_ids[0])
+    # vgg.cuda(device=-1)
     vgg.load_state_dict(torch.load(os.path.join(model_dir, 'vgg16.weight'), map_location='cpu'))
     vgg = torch.nn.DataParallel(vgg, gpu_ids)
     return vgg
