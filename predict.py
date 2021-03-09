@@ -18,12 +18,12 @@ class Enlighten_GAN:
         self.opt.no_flip = True  # no flip
         self.opt.dataroot = './test_dataset'
         self.opt.name = 'enlightening'
-        # self.opt.model = 'single'
+        self.opt.model = 'single'
         self.opt.gpu_ids=-1
         self.opt.which_direction = 'AtoB'
         self.opt.no_dropout = True
         self.opt.dataset_mode = 'unaligned'
-        self.opt.which_model_netG = 'unet_256'
+        self.opt.which_model_netG = 'sid_unet_resize'
         self.opt.skip = 1
         self.opt.use_norm = 1
         self.opt.use_wgan = 0
