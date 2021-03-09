@@ -53,10 +53,10 @@ class SingleModel(BaseModel):
         # Code (paper): G_A (G), G_B (F), D_A (D_Y), D_B (D_X)
 
         skip = True if opt.skip > 0 else False
-        # self.netG_A = networks.define_G(opt.input_nc, opt.output_nc,
-        #                                 opt.ngf, opt.which_model_netG, opt.norm, not opt.no_dropout, self.gpu_ids, skip=skip, opt=opt)
-        self.netG_B = networks.define_G(opt.output_nc, opt.input_nc,
-                                        opt.ngf, opt.which_model_netG, opt.norm, not opt.no_dropout, self.gpu_ids, skip=False, opt=opt)
+        self.netG_A = networks.define_G(opt.input_nc, opt.output_nc,
+                                        opt.ngf, opt.which_model_netG, opt.norm, not opt.no_dropout, self.gpu_ids, skip=skip, opt=opt)
+        # self.netG_B = networks.define_G(opt.output_nc, opt.input_nc,
+        #                                 opt.ngf, opt.which_model_netG, opt.norm, not opt.no_dropout, self.gpu_ids, skip=False, opt=opt)
 
         if self.isTrain:
             use_sigmoid = opt.no_lsgan
@@ -69,8 +69,8 @@ class SingleModel(BaseModel):
                                             opt.n_layers_patchD, opt.norm, use_sigmoid, self.gpu_ids, True)
         if not self.isTrain or opt.continue_train:
             which_epoch = opt.which_epoch
-            # self.load_network(self.netG_A, 'G_A', which_epoch)
-            self.load_network(self.netG_B, 'G_B', which_epoch)
+            self.load_network(self.netG_A, 'G_A', which_epoch)
+            # self.load_network(self.netG_B, 'G_B', which_epoch)
             if self.isTrain:
                 self.load_network(self.netD_A, 'D_A', which_epoch)
                 if self.opt.patchD:
