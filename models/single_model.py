@@ -38,14 +38,14 @@ class SingleModel(BaseModel):
                 self.vgg_patch_loss = networks.PerceptualLoss(opt)
                 self.vgg_patch_loss.cuda()
             # self.vgg_loss.cuda()
-            self.vgg = networks.load_vgg16("/datadrive/weights/enlightengan/", self.gpu_ids)
+            self.vgg = networks.load_vgg16(self.opt.weight_folder, self.gpu_ids)
             self.vgg.eval()
             for param in self.vgg.parameters():
                 param.requires_grad = False
         elif opt.fcn > 0:
             self.fcn_loss = networks.SemanticLoss(opt)
             self.fcn_loss.cuda()
-            self.fcn = networks.load_fcn("/datadrive/weights/enlightengan/")
+            self.fcn = networks.load_fcn(self.opt.weight_folder)
             self.fcn.eval()
             for param in self.fcn.parameters():
                 param.requires_grad = False
