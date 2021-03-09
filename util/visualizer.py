@@ -121,6 +121,7 @@ class Visualizer():
     def save_images(self, visuals):
         
         for label, image_numpy in visuals.items():
+            print("Label is", label)
             image = util.save_image(image_numpy)
 
             # ims.append(image_name)
