@@ -23,7 +23,7 @@ class Enlighten_GAN:
         self.opt.which_direction = 'AtoB'
         self.opt.no_dropout = True
         self.opt.dataset_mode = 'unaligned'
-        self.opt.which_model_netG = 'sid_unet_resize'
+        self.opt.which_model_netG = 'unet_256'
         self.opt.skip = 1
         self.opt.use_norm = 1
         self.opt.use_wgan = 0
