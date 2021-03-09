@@ -56,7 +56,7 @@ class Enlighten_GAN:
         print(dataset)
         for i, data in enumerate(dataset):
             print(i)
-            if(i==2):
+            if(i==0):
                 print("Setting Inputs")
                 self.model.set_input(data)
                 print("Predicting from Model")
