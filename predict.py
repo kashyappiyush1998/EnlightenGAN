@@ -40,32 +40,36 @@ class Enlighten_GAN:
     def get_enlightened_image(self, image):
         img_name = str(uuid.uuid4())+'.png'
         img_name = os.path.join(self.opt.dataroot, 'testA', img_name)
+        try:
         # if(image.shape[0]>1000 or image.shape[1]>1000):
         #     print("Resize: ", image.shape)
         #     image=cv2.resize(image, (int(image.shape[1]/3), int(image.shape[0]/3)))
         #     print(image.shape)
-        cv2.imwrite(img_name, image)
+            cv2.imwrite(img_name, image)
 
-        print('Creating DataLoader ...')
-        data_loader = CreateDataLoader(self.opt)
-        print('Creating DataSet ...')
-        dataset = data_loader.load_data()
-        print('Creating Visualiser ...')
-        visualizer = Visualizer(self.opt)
-        # create website
-        # web_dir = os.path.join("./ablation/", opt.name, '%s_%s' % (opt.phase, opt.which_epoch))
-        # webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.which_epoch))
-        # test
-        print("Length of  Dataset "+str(len(dataset)))
-        print(dataset)
-        for i, data in enumerate(dataset):
-            print("Setting Inputs")
-            self.model.set_input(data)
-            print("Predicting from Model")
-            visuals = self.model.predict()
-            print("Saving Visualiser")
-            image_new = visualizer.save_images(visuals)
-            image=cv2.resize(image_new, (int(image.shape[1]), int(image.shape[0])))
-            os.remove(img_name)
+            print('Creating DataLoader ...')
+            data_loader = CreateDataLoader(self.opt)
+            print('Creating DataSet ...')
+            dataset = data_loader.load_data()
+            print('Creating Visualiser ...')
+            visualizer = Visualizer(self.opt)
+            # create website
+            # web_dir = os.path.join("./ablation/", opt.name, '%s_%s' % (opt.phase, opt.which_epoch))
+            # webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.which_epoch))
+            # test
+            print("Length of  Dataset "+str(len(dataset)))
+            print(dataset)
+            for i, data in enumerate(dataset):
+                print("Setting Inputs")
+                self.model.set_input(data)
+                print("Predicting from Model")
+                visuals = self.model.predict()
+                print("Saving Visualiser")
+                image_new = visualizer.save_images(visuals)
+                image=cv2.resize(image_new, (int(image.shape[1]), int(image.shape[0])))
+                os.remove(img_name)
+                return image
+        except:
+            os.remove(img_name)    
+            return None 
             
-            return image
