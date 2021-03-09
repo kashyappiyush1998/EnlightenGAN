@@ -30,6 +30,7 @@ class SingleModel(BaseModel):
         self.input_B = self.Tensor(nb, opt.output_nc, size, size)
         self.input_img = self.Tensor(nb, opt.input_nc, size, size)
         self.input_A_gray = self.Tensor(nb, 1, size, size)
+        opt.vgg =1
         print("opt.vgg: ", opt.vgg, "opt.fcn: ", opt.fcn, "opt.skip: ", opt.skip)
         if opt.vgg > 0:
             self.vgg_loss = networks.PerceptualLoss(opt)
