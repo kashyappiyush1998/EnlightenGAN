@@ -122,12 +122,13 @@ class Visualizer():
         
         for label, image_numpy in visuals.items():
             print("Label is", label)
-            image = util.save_image(image_numpy)
+            if(label=='fake_B'):
+                image = util.save_image(image_numpy)
 
-            # ims.append(image_name)
-            # txts.append(label)
-            # links.append(image_name)
-            return image
+                # ims.append(image_name)
+                # txts.append(label)
+                # links.append(image_name)
+                return image
         # webpage.add_images(ims, txts, links, width=self.win_size)
 
 
