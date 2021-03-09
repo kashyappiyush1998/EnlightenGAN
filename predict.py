@@ -7,6 +7,7 @@ from .util.visualizer import Visualizer
 from pdb import set_trace as st
 from .util import html
 import uuid
+import cv2
 
 class Enlighten_GAN:
     def __init__(self):
@@ -39,7 +40,7 @@ class Enlighten_GAN:
     def get_enlightened_image(self, image):
         img_name = str(uuid.uuid4())+'.png'
         img_name = os.path.join(self.opt.dataroot, 'testA', img_name)
-        image.save(img_name)
+        cv2.imwrite(img_name, image)
 
         print('Creating DataLoader ...')
         data_loader = CreateDataLoader(self.opt)
