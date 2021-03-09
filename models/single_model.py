@@ -122,8 +122,8 @@ class SingleModel(BaseModel):
         input_B = input['B' if AtoB else 'A']
         input_img = input['input_img']
         input_A_gray = input['A_gray']
-        print()
-        self.input_A.resize_(self.input_A.size()).copy_(self.input_A)
+        print(input_A.size())
+        self.input_A.resize_(input_A.size()).copy_(input_A)
         self.input_A_gray.resize_(input_A_gray.size()).copy_(input_A_gray)
         self.input_B.resize_(input_B.size()).copy_(input_B)
         self.input_img.resize_(input_img.size()).copy_(input_img)
