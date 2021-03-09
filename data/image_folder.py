@@ -10,6 +10,7 @@ import torch.utils.data as data
 from PIL import Image
 import os
 import os.path
+import cv2
 
 IMG_EXTENSIONS = [
     '.jpg', '.JPG', '.jpeg', '.JPEG',
@@ -42,7 +43,7 @@ def store_dataset(dir):
         for fname in fnames:
             if is_image_file(fname):
                 path = os.path.join(root, fname)
-                img = Image.open(path).convert('RGB')
+                img = cv2.imread(path)
                 images.append(img)
                 all_path.append(path)
 
